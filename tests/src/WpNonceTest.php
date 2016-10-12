@@ -95,7 +95,12 @@ class WpNonceTest extends TestCase
         Functions::when('wp_verify_nonce')->justReturn(true);
 
         // twice because the same filter must be added on create and on verify
-        Filters::expectAdded('nonce_life')->twice()->with(\Mockery::type('Closure'));
+        Filters::expectAdded('nonce_life')
+            ->twice()
+            ->with(\Mockery::type('Closure'))
+            ->whenHappen(function (\Closure $closure) {
+                self::assertSame(100, $closure());
+            });
 
         $context = \Mockery::mock(NonceContextInterface::class);
         $context->shouldReceive('offsetExists')->once()->with('foo')->andReturn(true);
