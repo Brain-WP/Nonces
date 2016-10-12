@@ -7,7 +7,7 @@ Nonces
 
 ------
 
-** Nonces is an OOP package for WordPress to deal with nonces. **
+**Nonces is an OOP package for WordPress to deal with nonces.**
 
 -------------
 
