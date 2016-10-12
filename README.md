@@ -264,7 +264,7 @@ workflow and objects that, even breaking SRP, are no bigger than 50 lines of NCL
 
 # Installation
 
-Via Composer, require `brain\nonces` in version `~1.0.0`.
+Via Composer, require `brain/nonces` in version `~1.0.0`.
 
 
 # Minimum Requirements
