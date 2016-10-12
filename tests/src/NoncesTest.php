@@ -62,7 +62,7 @@ class NoncesTest extends TestCase
         });
 
         Functions::expect('wp_verify_nonce')->andReturnUsing(function ($nonce, $action) {
-            return hash_equals(md5($action), $nonce);
+            return md5($action) === $nonce;
         });
 
         parent::setUp();
