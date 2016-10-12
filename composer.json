@@ -1,0 +1,39 @@
+{
+  "name":         "brain/nonces",
+  "description":  "OOP package for WordPress to deal with nonces.",
+  "type":         "package",
+  "keywords":     [
+    "wordpress",
+    "nonce",
+    "wordpress nonce",
+    "security"
+  ],
+  "license":      "MIT",
+  "authors":      [
+    {
+      "name":  "Giuseppe Mazzapica",
+      "email": "giuseppe.mazzapica@gmail.com",
+      "role":  "Developer"
+    }
+  ],
+  "require":      {
+    "php": ">=5.5.0"
+  },
+  "require-dev":  {
+    "brain/monkey":    "~1.4",
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload":     {
+    "psr-4": {
+      "Brain\\Nonces\\": "src/"
+    },
+    "files": [
+      "inc/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Brain\\Nonces\\Tests\\": "tests/src/"
+    }
+  }
+}
