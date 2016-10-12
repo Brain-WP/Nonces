@@ -31,11 +31,6 @@ final class WpNonce implements NonceInterface
     private $life;
 
     /**
-     * @var string
-     */
-    private $nonce_value;
-
-    /**
      * Constructor. Save properties as instance variables.
      *
      * We allow to customize nonce Time To Live, defaulting to 30 minutes (1800 seconds) that
@@ -104,9 +99,7 @@ final class WpNonce implements NonceInterface
         $value = wp_create_nonce($this->hashedAction());
         remove_filter('nonce_life', $lifeFilter);
 
-        $this->nonce_value = $value;
-
-        return $this->nonce_value;
+        return $value;
     }
 
     /**
