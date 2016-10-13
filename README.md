@@ -21,7 +21,6 @@ TOC
     - [`RequestGlobalsContext`](#requestglobalscontext)
     - [`Helpers`](#helpers)
     - [`WpNonce` is blog-specific](#wpnonce-is-blog-specific)
-- [Breaking SRP](#breaking-srp)
 - [Installation](#installation)
 - [Minimum Requirements](#minimum-requirements)
 - [License](#license)
@@ -236,30 +235,6 @@ blog context.
 This is a sanity check that avoid different issues in multisite context with plugins that switch blog 
 when, for example, saving post data; preventing to save meta data for posts of a blog into posts
 of _another_ blog.
-
-
-# Breaking SRP
-
-The package provides a couple of interfaces to abstract the nonce workflow, alongside implementations
-that just wraps WordPress functions.
-
-The ideal OOP way to make this work, would be having separate interfaces for _nonces_ 
-(implemented as value object) and _nonce validators_.
-
-However, following that path every nonce validator would be very specific to a nonce implementation,
-because to validate a nonce value a validator needs to be aware of how the nonce was built.
-
-So, probably, the package would need another class, a sort of factory, being able to create 
-instances of _nonces_ and _nonces validator_ being compatible each other.
-
-The thing is I thought that this would be really too much, at least in WordPress context.
-
-So I decided to break on purpose the "Single Responsibility Principle" and don't model nonce 
-instances as value objects, but as business objects that holds a value _and_ validates against a 
-context.
-
-This trade off gave me the chance to only deal with a single object, but still having a decent OOP 
-workflow and objects that, even breaking SRP, are no bigger than 50 lines of NCLOC.
 
 
 # Installation
