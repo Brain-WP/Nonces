@@ -31,17 +31,16 @@ final class RequestGlobalsContext implements NonceContextInterface
     private $context;
 
     /**
-     * Constructor.
-     *
      * We don't use `$_REQUEST` because, by default, in PHP it gives precedence to `$_GET` over
      * `$_POST` in POST requests, and being dependant on `request_order` / `variables_order` ini
      * configurations it is not consistent across systems.
      */
     public function __construct()
     {
-        $http_method = filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING);
+        $http_method = empty($_SERVER['REQUEST_METHOD']) ? null : $_SERVER['REQUEST_METHOD'];
+        $is_post = is_string($http_method) && strtoupper($http_method) === 'POST';
+        $request = $is_post ? array_merge($_GET, $_POST) : $_REQUEST;
 
-        $request = strtoupper($http_method) === 'POST' ? array_merge($_GET, $_POST) : $_GET;
         $this->context = new ArrayContext($request);
     }
 
