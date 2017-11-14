@@ -116,6 +116,7 @@ class NoncesTest extends TestCase
 
         // this is pretty much what PHP does
         parse_str(parse_url($url, PHP_URL_QUERY), $_GET);
+        $_REQUEST = $_GET;
 
         self::assertTrue($nonce->validate());
     }

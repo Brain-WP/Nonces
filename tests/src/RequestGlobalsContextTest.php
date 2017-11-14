@@ -31,7 +31,7 @@ class RequestGlobalsContextTest extends TestCase
 
     public function testOffsetGet()
     {
-        $_GET = ['foo' => 'bar'];
+        $_REQUEST = ['foo' => 'bar'];
         $context = new RequestGlobalsContext();
 
         self::assertSame('bar', $context['foo']);
