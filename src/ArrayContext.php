@@ -34,6 +34,7 @@ final class ArrayContext implements NonceContextInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return array_key_exists($offset, $this->storage);
@@ -42,6 +43,7 @@ final class ArrayContext implements NonceContextInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->offsetExists($offset) ? $this->storage[$offset] : null;
@@ -55,6 +57,7 @@ final class ArrayContext implements NonceContextInterface
      *
      * @throws \BadMethodCallException
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         throw new \BadMethodCallException(
@@ -69,6 +72,7 @@ final class ArrayContext implements NonceContextInterface
      *
      * @throws \BadMethodCallException
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         throw new \BadMethodCallException(
