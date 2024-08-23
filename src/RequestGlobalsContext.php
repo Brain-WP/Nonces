@@ -50,6 +50,7 @@ final class RequestGlobalsContext implements NonceContextInterface
      * @param mixed $offset
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return $this->context->offsetExists($offset);
@@ -61,6 +62,7 @@ final class RequestGlobalsContext implements NonceContextInterface
      * @param mixed $offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->context->offsetGet($offset);
@@ -72,6 +74,7 @@ final class RequestGlobalsContext implements NonceContextInterface
      * @param mixed $offset
      * @param mixed $value
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         $this->context->offsetSet($offset, $value);
@@ -82,6 +85,7 @@ final class RequestGlobalsContext implements NonceContextInterface
      *
      * @param mixed $offset
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         $this->context->offsetUnset($offset);
