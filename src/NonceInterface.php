@@ -41,8 +41,8 @@ interface NonceInterface
      * Custom implementation of context interface can provide different values to be used for
      * validation.
      *
-     * @param NonceContextInterface $context
+     * @param NonceContextInterface|null $context
      * @return bool
      */
-    public function validate(NonceContextInterface $context = null);
+    public function validate(?NonceContextInterface $context = null);
 }
