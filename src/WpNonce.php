@@ -62,10 +62,10 @@ final class WpNonce implements NonceInterface
      * We need to filter the nonce life and remove the filter afterwards, because WP does not
      * allow to filter nonce by action (yet? @link https://core.trac.wordpress.org/ticket/35188)
      *
-     * @param NonceContextInterface $context
+     * @param NonceContextInterface|null $context
      * @return bool
      */
-    public function validate(NonceContextInterface $context = null)
+    public function validate(?NonceContextInterface $context = null)
     {
         $context or $context = new RequestGlobalsContext();
 

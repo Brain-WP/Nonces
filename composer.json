@@ -17,7 +17,7 @@
     }
   ],
   "require":      {
-    "php": ">=5.5.0"
+    "php": ">=7.1"
   },
   "require-dev":  {
     "brain/monkey":    "~1.4",
